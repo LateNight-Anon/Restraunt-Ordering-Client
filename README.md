@@ -9,16 +9,17 @@ Setup.py is a CLI app designed for admins, it allows the user to config files i.
 
 # Example Files
 The files in the example files folder contains a copy of all the non-code files in the form I was using to test to the software along with a text file showing where the files should be placed for all pieces of software to work
--bathroom.png: the image used in the 'Bathroom' section of the software
--bleep.mp3: default error noise
--tables.json: contains the data for all tables (is they need assistance and too what severity)
--foodItems.json: contains the definitions for each item in the menu
--closeMessage.txt: contains the message shown on the popup question when closing the app
--tableNumber.csv: contains the table number of whatever table this is installed in
--minAndMaxSev.csv: contains the minimum and maximum severity rating a user can input when asking for assistance
+
+- bathroom.png: the image used in the 'Bathroom' section of the software
+- bleep.mp3: default error noise
+- tables.json: contains the data for all tables (is they need assistance and too what severity)
+- foodItems.json: contains the definitions for each item in the menu
+- closeMessage.txt: contains the message shown on the popup question when closing the app
+- tableNumber.csv: contains the table number of whatever table this is installed in
+- minAndMaxSev.csv: contains the minimum and maximum severity rating a user can input when asking for assistance
 
 # REQUIRMENTS
--A standard installation of python 3.12
--threading, multiprocessing, typing, csv, json, time, tkinter, PIL and os libraries (part of the standard library)
--The pygame library (installed with 'pip install pygame' or 'python -m pip install pygame --user')
--windows 10, windows 11 or Linux with a Desktop environment
+- A standard installation of python 3.12
+- threading, multiprocessing, typing, csv, json, time, tkinter, PIL and os libraries (part of the standard library)
+- The pygame library (installed with 'pip install pygame' or 'python -m pip install pygame --user')
+- windows 10, windows 11 or Linux with a Desktop environment
