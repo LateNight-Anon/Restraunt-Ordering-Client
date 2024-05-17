@@ -3,8 +3,11 @@ This project is almost complete (the setup.py and waiter.py programs just need t
 
 # Restraunt Ordering Client
 This repository contains the source code for 3 pieces of software desiged to work together in a restraunt environment.
+
 Core.py is the main piece, meant to fill a similar place to the ordering terminals in McDonalds; it takes its basic functionality and combines it with the ability to call a waiter to your table, open a map to the bathroom and pay with split billing.
+
 Waiter.py is designed to be used by staff, it shows a live feed of what tables need assistance.
+
 Setup.py is a CLI app designed for admins, it allows the user to config files i.e the menu and table number through a CLI process (this portion of codebase was a last minute conclusion thus the codebase is 'spaghetti' at best)
 
 # Example Files and Definitions of Data
