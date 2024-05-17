@@ -7,7 +7,7 @@ Core.py is the main piece, meant to fill a similar place to the ordering termina
 Waiter.py is designed to be used by staff, it shows a live feed of what tables need assistance.
 Setup.py is a CLI app designed for admins, it allows the user to config files i.e the menu and table number through a CLI process (this portion of codebase was a last minute conclusion thus the codebase is 'spaghetti' at best)
 
-# Example Files
+# Example Files and Definitions of Data
 The files in the example files folder contains a copy of all the non-code files in the form I was using to test to the software along with a text file showing where the files should be placed for all pieces of software to work
 
 - bathroom.png: the image used in the 'Bathroom' section of the software
