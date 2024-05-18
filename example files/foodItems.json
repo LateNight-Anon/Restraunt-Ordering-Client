@@ -1,0 +1,32 @@
+{
+	"burgOne": {
+		"name": "rat burg",
+		"ingredients": ["rat", "one bun"],
+		"price": 500000
+	},
+	"burgTwo": {
+		"name": "rat burg2",
+		"ingredients": ["rat2", "one bun"],
+		"price": 500088800
+	},
+	"burgThree": {
+		"name": "rat burg3",
+		"ingredients": ["raticuss", "honey mustard", "blue cheese", "one bun"],
+		"price": 2
+	},
+		"burgFour": {
+		"name": "rat burg99",
+		"ingredients": ["rat99", "one bun"],
+		"price": 50009999999988800
+	},
+	"burgFive": {
+		"name": "barbeuq bacon burger",
+		"ingredients": ["raticuss", "honey mustard", "blue cheese", "one bun", "honey mustard", "huney mustard again"],
+		"price": 1200
+	},
+	"burgSix": {
+		"name": "rodent sandwiggs",
+		"ingredients": ["rodent", "blue cheese"],
+		"price": 1250
+	}
+}
