@@ -193,9 +193,10 @@ def createCallWindow() -> None: #creates and contains functionality for the menu
     def readNumberFromCsv() -> int: #reads the softwares assigned table number
         try: file = open("tableNumber.csv", 'r')
         except FileNotFoundError: fatalError("002")
-        except ValueError: fatalError("003")
         else:
-            with file: return int(next(reader(file))[0])
+            try:
+                with file: return int(next(reader(file))[0])
+            except ValueError: fatalError("003")
 
     def onWindowClose() -> None:
         global waiterWindowIsOpen
