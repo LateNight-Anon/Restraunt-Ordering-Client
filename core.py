@@ -143,21 +143,27 @@ def createPayWindow(cost: float) -> None:
         payWindowIsOpen = False
         payWindow.destroy()
 
+    def submitPayment() -> None:
+        if not len(listOfPaymentTypes): 
+            playSound()
+            submitPaymentButton.configure(bg = "tomato")
+        else: submitPaymentButton.configure(bg = "green")
+
     global payWindowIsOpen
     if not payWindowIsOpen:
         if cost > 0:
             payWindowIsOpen = True
             payWindow = Tk()
             payWindow.title("pay for your meal")
-            payWindow.geometry("500x800")
+            payWindow.geometry("500x600")
             payWindow.resizable(width = False, height = False)
             payWindow.protocol('WM_DELETE_WINDOW', onWindowClose)
             Label(payWindow, text = "pay your bill", font = ("Arial", 25)).pack()    
             costLabel = Label(payWindow, text = 'you need to pay $' + str(cost / 100), font = ("Arial", 25))
             costLabel.place(x = 150 - 12 * len(str(cost)), y = 120) #math is used to center text
             [assignAddPaymentButton(), addPaymentSplitLabels()]
-            submitPaymentButton = Button(text = "submit payment", bg = "tomato", font = ("Arial", 15))
-            submitPaymentButton
+            submitPaymentButton = Button(payWindow, text = "submit payment", bg = "grey76", font = ("Arial", 15), command = submitPayment)
+            submitPaymentButton.place(x = 170, y = 550)
 
             payWindow.mainloop()
         else: Thread(target = createErrorMessage, args = (app, "you cant pay for an empty cart", 20, 0, 130)).start()
