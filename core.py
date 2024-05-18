@@ -22,7 +22,7 @@ class menuItem: #this class is the template for the sections where you add items
         self.ingredients = ingredients
         self.price = price
 
-class tempButton(Button): #this exists because winfo_rootx gives me the wrong shit constantly
+class tempButton(Button): #this exists because winfo_rootx gives me the wrong values constantly
     realX: int = None
     realY: int = None
 
@@ -32,7 +32,7 @@ class tempButton(Button): #this exists because winfo_rootx gives me the wrong sh
     
     def grabRealPos(self) -> List[int]: return [self.realX, self.realY]
 
-class tempLabel(Label): #this exists because winfo_rootx gives me the wrong shit constantly
+class tempLabel(Label): #this exists because winfo_rootx gives me the wrong values constantly
     realX: int = None
     realY: int = None
 
@@ -47,6 +47,10 @@ playSound = lambda: mixer.music.play() #abstraction over mixer.music.play that t
 clearFile = lambda fileName: open(fileName, 'w').close() #abstraction to remove all contents from a specified file
 
 tableNumber: int = None
+
+def fatalError(errorID: str) -> None:
+    messagebox.showinfo(title = "fatal error", message = "fatal error detected\ncontact admins with error code\nerrorCode: " + errorID)
+    exit()
 
 def closeMainWindow() -> None: #function that runs when window is closed that adds a confirmation box
     messageBoxText: str = ""
@@ -169,7 +173,7 @@ def createCallWindow() -> None: #creates and contains functionality for the menu
             maxSev: int = int(minAndMaxReader[1])
             del minAndMaxReader
             if int(severity) < minSev or int(severity) > maxSev: raise ValueError()
-        except FileNotFoundError: print("file tampered with error")
+        except FileNotFoundError: fatalError("001")
         except ValueError: Thread(target = createErrorMessage, args = (callApp, "input a severity rating between " + str(minSev) + " and " + str(maxSev), 15, 75, 300)).start()
         else:
             with file:
@@ -182,8 +186,8 @@ def createCallWindow() -> None: #creates and contains functionality for the menu
 
     def readNumberFromCsv() -> int: #reads the softwares assigned table number
         try: file = open("tableNumber.csv", 'r')
-        except FileNotFoundError: print('file gone')
-        except ValueError: print("table number incorrectly configured")
+        except FileNotFoundError: fatalError("002")
+        except ValueError: fatalError("003")
         else:
             with file: return int(next(reader(file))[0])
 
@@ -248,7 +252,7 @@ def moveObjectsOnCanvas(canvValue: int, widValue: int) -> None:
                 canvas.moveto(listOfObjectsOnCanvas[i], 100, cords[1] + canvValue)
             case "<class '__main__.tempLabel'>": moveStandardWidget(i)
             case "<class '__main__.tempButton'>": moveStandardWidget(i)
-            case _: [print("illegal source code modification error"), exit()]
+            case _: [fatalError("004"), exit()]
 
 #create boolean values that represent if a window is open
 
@@ -279,7 +283,7 @@ userCart: List[cartItem] = []
 #open menu list
 
 try: file = open("foodItems.json", 'r')
-except FileNotFoundError: print("uhhhhh")
+except FileNotFoundError: fatalError("005")
 else:
     with file:
         fileReader = load(file)
